@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46d36801e6f4ca49a8ec8f99a1c2cbb, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  inputItem: {fileID: 11400000, guid: 644994e329de525488b9dcbdfb0d8a54, type: 2}
+  outputItem: {fileID: 11400000, guid: bebccfaa6c58ba24996fbfe4ccc0a429, type: 2}
+  outputAmount: 4
+  smeltTime: 4

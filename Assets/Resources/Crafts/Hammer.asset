@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937991b471b7dd4439f171a2b0d79c23, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: 
+  craftedItem: {fileID: 11400000, guid: 77c6590bbe816154882993334dadf883, type: 2}
+  requiredItems:
+  - {fileID: 11400000, guid: bebccfaa6c58ba24996fbfe4ccc0a429, type: 2}
+  - {fileID: 11400000, guid: 705ae62798cdf7349a0b65832018f98b, type: 2}
+  requiredAmounts: 0400000002000000
+  amountCrafted: 1

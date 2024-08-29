@@ -1,0 +1,4 @@
+TODO: Fix crafting/building not working if right amount but not stacked resources.
+
+TODO: Furnace system for ores (Bronze, iron, gold etc...)
+TODO: Make new types of rocks, with certain ores + rocks

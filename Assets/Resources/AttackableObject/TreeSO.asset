@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05485c2c402f9184e94f8f045339a605, type: 3}
+  m_Name: TreeSO
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  attackableType: 0
+  requiredTool: 2
+  requiredToolLevel: 1
+  dropItems:
+  - {fileID: 11400000, guid: 644994e329de525488b9dcbdfb0d8a54, type: 2}
+  - {fileID: 11400000, guid: 705ae62798cdf7349a0b65832018f98b, type: 2}
+  totalResources: 1400000005000000
