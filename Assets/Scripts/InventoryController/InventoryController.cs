@@ -283,20 +283,24 @@ public class InventoryController : MonoBehaviour, IMenu
         }
     }
 
-    public bool HaveItems(ItemSO item, int itemQuantity)
+    public bool HaveItems(ItemSO itemSO, int itemQuantity)
     {
-        if (itemQuantity == 0)
+        if (itemQuantity <= 0) return false;
+
+        int totalQuantityFound = 0;
+
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            return false;
-        }
-        int slotIndex = FindItemSlot(item.itemName);
-        if (slotIndex != -1)
-        {
-            if (itemSlots[slotIndex].itemQuantity >= itemQuantity)
+            if (itemSlots[i].itemSOInSlot == itemSO)
             {
-                return true;
+                totalQuantityFound += itemSlots[i].itemQuantity;
+                if (totalQuantityFound >= itemQuantity)
+                {
+                    return true;
+                }
             }
         }
+
         return false;
     }
     public void CraftItem(CraftSO craft)
@@ -318,28 +322,39 @@ public class InventoryController : MonoBehaviour, IMenu
 
     public bool RemoveItem(ItemSO itemSO, int itemQuantity)
     {
-        if (itemQuantity == 0)
+        if (itemQuantity <= 0) return false;
+
+        int itemLeftToRemove = itemQuantity;
+        List<ItemSlot> itemSlotsToRemove = new List<ItemSlot>();
+        // Check where the items are stored, and how many items are left to remove
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            return false;
-        }
-        int slotIndex = FindItemSlot(itemSO.itemName);
-        if (slotIndex != -1)
-        {
-            if (itemSlots[slotIndex].itemQuantity >= itemQuantity)
+            if (itemSlots[i].itemSOInSlot == itemSO)
             {
-                itemSlots[slotIndex].itemQuantity -= itemQuantity;
-                if (itemSlots[slotIndex].itemQuantity == 0)
-                {
-                    itemSlots[slotIndex].ClearSlot();
-                }
-                else
-                {
-                    itemSlots[slotIndex].RefreshSlot();
-                }
+                itemSlotsToRemove.Add(itemSlots[i]);
+                itemLeftToRemove -= itemSlots[i].itemQuantity;
+                if (itemLeftToRemove <= 0) break;
+            }
+        }
+        // If there are more items to remove than what is available
+        if (itemLeftToRemove > 0) return false;
+        itemLeftToRemove = itemQuantity;
+        // Otherwise, remove the items
+        foreach (var slot in itemSlotsToRemove)
+        {
+            if (itemLeftToRemove >= slot.itemQuantity)
+            {
+                itemLeftToRemove -= slot.itemQuantity;
+                slot.ClearSlot();
+            }
+            else
+            {
+                slot.itemQuantity -= itemLeftToRemove;
+                slot.RefreshSlot();
                 return true;
             }
         }
-        return false;
+        return true;
     }
 
     internal void SwapItems(ItemSlot itemSlot, ItemSlot targetSlot)
@@ -367,22 +382,6 @@ public class InventoryController : MonoBehaviour, IMenu
         itemTooltipText.text = targetSlot.itemSOInSlot.itemName;
         itemTooltip.SetActive(true);
     }
-
-    // int StackItems(ItemSlot itemSlot, ItemSlot targetSlot)
-    // {
-    //     int leftOverItems = targetSlot.AddItem(itemSlot.itemSOInSlot, itemSlot.itemQuantity);
-    //     if (leftOverItems > 0)
-    //     {
-    //         itemSlot.itemQuantity = leftOverItems;
-    //         itemSlot.RefreshSlot();
-    //         return leftOverItems;
-    //     }
-    //     else
-    //     {
-    //         itemSlot.ClearSlot();
-    //         return 0;
-    //     }
-    // }
 
     public void OnLeftClickSlot(ItemSlot slot)
     {

@@ -1,4 +1,3 @@
-TODO: Fix crafting/building not working if right amount but not stacked resources.
-
-TODO: Furnace system for ores (Bronze, iron, gold etc...)
-TODO: Make new types of rocks, with certain ores + rocks
+Create new ores and new type/tier of items
+Add ores to rocks
+Change the hitbox of trees to only be a cylinder (same as when destroyed)

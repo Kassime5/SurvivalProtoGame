@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.UI;
 using UnityEngine;
 
+[DefaultExecutionOrder(-100)]
 public class TerrainManager : MonoBehaviour
 {
     public Terrain terrain;

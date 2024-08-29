@@ -15,6 +15,6 @@ MonoBehaviour:
   buildName: Furnace
   requiredItems:
   - {fileID: 11400000, guid: bebccfaa6c58ba24996fbfe4ccc0a429, type: 2}
-  requiredAmounts: 08000000
+  requiredAmounts: 14000000
   buildPrefab: {fileID: 4365861658976969106, guid: ccb645e2d248a7c4c8d5de798d0be01f,
     type: 3}

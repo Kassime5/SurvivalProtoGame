@@ -6,6 +6,7 @@ public class AttackableObject : MonoBehaviour
 {
     [SerializeField] public AttackableObjectSO attackableObjectSO;
     private TerrainManager terrainManager;
+    private bool destroyed = false;
     void Start()
     {
         terrainManager = FindObjectOfType<TerrainManager>();
@@ -13,18 +14,19 @@ public class AttackableObject : MonoBehaviour
     }
     public void TakeDamage(float damage, EquipmentType tool, int equipmentLevel)
     {
+        if (destroyed) return;
         float damageMultiplier = 1 + (equipmentLevel - attackableObjectSO.requiredToolLevel);
         // print("Damage Multiplier: " + damageMultiplier);
         if (attackableObjectSO.requiredTool == EquipmentType.None || attackableObjectSO.requiredToolLevel == 1)
         {
-            bool destroyed = attackableObjectSO.Attacked(damage, damageMultiplier);
+            destroyed = attackableObjectSO.Attacked(damage, damageMultiplier);
             // terrainManager.PlayerAttackTerrain(resource, attackableObjectSO.dropItem);
             if (destroyed) Death();
             return;
         }
         else if (attackableObjectSO.requiredTool == tool && attackableObjectSO.requiredToolLevel <= equipmentLevel)
         {
-            bool destroyed = attackableObjectSO.Attacked(damage, damageMultiplier);
+            destroyed = attackableObjectSO.Attacked(damage, damageMultiplier);
             // terrainManager.PlayerAttackTerrain(resource, attackableObjectSO.dropItem);
             if (destroyed) Death();
             return;

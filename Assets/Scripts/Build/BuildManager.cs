@@ -123,7 +123,6 @@ public class BuildManager : MonoBehaviour, IMenu
             return false;
         }
         BuildSO buildSO = currentBuildSO;
-        print("Building " + buildSO.buildName);
         if (buildSO.requiredItems.Length != buildSO.requiredAmounts.Length)
         {
             Debug.LogError("BuildSO " + buildSO.name + " has different required items and amounts lengths");
@@ -143,9 +142,7 @@ public class BuildManager : MonoBehaviour, IMenu
         for (int i = 0; i < buildSO.requiredItems.Length; i++)
         {
             inventoryController.RemoveItem(buildSO.requiredItems[i], buildSO.requiredAmounts[i]);
-            print("Removed " + buildSO.requiredItems[i].name + " x" + buildSO.requiredAmounts[i]);
         }
-        print("Built " + buildSO.buildName);
         Instantiate(buildSO.buildPrefab, BuildRayCast.instance.GetCurrentBuildingPosition(), Quaternion.identity);
         return true;
     }
