@@ -69,10 +69,10 @@ public class Furnace : MonoBehaviour, IInteractable
         furnaceRecipe = furnaceManager.GetRecipe(inputItem);
         if (furnaceRecipe == null)
         {
-            // print("No recipe found");
+            isSmelting = false;
             return;
         }
-        if (inputAmount > 0 && fuelAmount > 0)
+        if (inputAmount >= furnaceRecipe.inputAmount && fuelAmount > 0)
         {
             if (outputItem != furnaceRecipe.outputItem && outputItem != null) return;
             isSmelting = true;
@@ -99,7 +99,7 @@ public class Furnace : MonoBehaviour, IInteractable
 
     private void Smelt()
     {
-        inputAmount -= 1;
+        inputAmount -= furnaceRecipe.inputAmount;
         fuelAmount -= 1;
         outputItem = furnaceRecipe.outputItem;
         outputAmount += furnaceRecipe.outputAmount;

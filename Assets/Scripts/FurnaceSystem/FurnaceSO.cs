@@ -6,6 +6,7 @@ using UnityEngine;
 public class FurnaceSO : ScriptableObject
 {
     [SerializeField] public ItemSO inputItem;
+    [SerializeField] public int inputAmount;
     [SerializeField] public ItemSO outputItem;
     [SerializeField] public int outputAmount;
     [SerializeField] public float smeltTime;

@@ -19,4 +19,5 @@ MonoBehaviour:
   requiredToolLevel: 2
   dropItems:
   - {fileID: 11400000, guid: bebccfaa6c58ba24996fbfe4ccc0a429, type: 2}
-  totalResources: 14000000
+  - {fileID: 11400000, guid: d6c795027c07fa843bec87c974c60e2f, type: 2}
+  totalResources: 140000000a000000

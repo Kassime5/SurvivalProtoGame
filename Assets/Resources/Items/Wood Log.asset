@@ -17,5 +17,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: c9e5e47c0fb9bd34395afbef4f4bea55, type: 3}
   itemType: 2
   equipmentType: 0
-  equipmentLevel: 0
+  equipmentLevel: 1
   canBeUseAsFuel: 1

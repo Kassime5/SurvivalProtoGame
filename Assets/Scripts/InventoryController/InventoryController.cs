@@ -34,6 +34,7 @@ public class InventoryController : MonoBehaviour, IMenu
     private CraftingManager craftingManager;
     private PlayerRayCastInfo playerRayCastInfo;
     private Vector2 offset;
+    private Vector2 offsetWhenTooltipIsOnSlot = new Vector2(0, 100f);
     private string currentMode = "Inventory";
     private int hotBarSlotIndex = 0;
 
@@ -173,7 +174,7 @@ public class InventoryController : MonoBehaviour, IMenu
         }
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)inventoryPanel.transform, Input.mousePosition, null, out localPoint);
-        localPoint += offset;
+        localPoint += offset + (itemTooltipSlot.itemSOInSlot != null ? offsetWhenTooltipIsOnSlot : Vector3.zero);
         itemTooltip.transform.localPosition = localPoint;
     }
     public void ShowItemTooltip(string text)

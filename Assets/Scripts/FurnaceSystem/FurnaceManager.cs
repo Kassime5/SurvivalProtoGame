@@ -60,11 +60,11 @@ public class FurnaceManager : MonoBehaviour
         {
             return;
         }
-        if (slot.itemSlotType != ItemSlotType.FurnaceInput && slot.itemSlotType != ItemSlotType.FurnaceFuel)
-        {
-            // print(slot.itemSlotType);
-            return;
-        }
+        // if (slot.itemSlotType != ItemSlotType.FurnaceInput && slot.itemSlotType != ItemSlotType.FurnaceFuel)
+        // {
+        //     // print(slot.itemSlotType);
+        //     return;
+        // }
         if (item == null)
         {
             currentFurnace.ClearSlot(slot.itemSlotType);

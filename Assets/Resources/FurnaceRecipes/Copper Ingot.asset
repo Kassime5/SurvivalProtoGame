@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a46d36801e6f4ca49a8ec8f99a1c2cbb, type: 3}
-  m_Name: Rock
+  m_Name: Copper Ingot
   m_EditorClassIdentifier: 
-  inputItem: {fileID: 11400000, guid: 644994e329de525488b9dcbdfb0d8a54, type: 2}
+  inputItem: {fileID: 11400000, guid: d6c795027c07fa843bec87c974c60e2f, type: 2}
   inputAmount: 2
-  outputItem: {fileID: 11400000, guid: bebccfaa6c58ba24996fbfe4ccc0a429, type: 2}
-  outputAmount: 4
-  smeltTime: 4
+  outputItem: {fileID: 11400000, guid: 02c59986e07144a459ce30f5d5f8916f, type: 2}
+  outputAmount: 1
+  smeltTime: 8

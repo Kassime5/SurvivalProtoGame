@@ -20,4 +20,4 @@ MonoBehaviour:
   dropItems:
   - {fileID: 11400000, guid: 644994e329de525488b9dcbdfb0d8a54, type: 2}
   - {fileID: 11400000, guid: 705ae62798cdf7349a0b65832018f98b, type: 2}
-  totalResources: 7800000005000000
+  totalResources: 1400000005000000

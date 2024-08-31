@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b2feee114c6c144a84881d768f8222f, type: 3}
-  m_Name: Rock
+  m_Name: Silver
   m_EditorClassIdentifier: 
-  itemName: Rock
-  itemDescription: Rock
-  itemSprite: {fileID: 21300000, guid: aa41faa159e432647a2db2203dc9339f, type: 3}
+  itemName: Silver
+  itemDescription: Silver
+  itemSprite: {fileID: 21300000, guid: 5446be814708fd04c90a590774a91e5f, type: 3}
   itemType: 2
   equipmentType: 0
   equipmentLevel: 1
