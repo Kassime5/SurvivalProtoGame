@@ -57,28 +57,34 @@ public class TerrainManager : MonoBehaviour
             treeInstances.Remove(tree.TreeInstance);
             if (treeObject.GetComponentInChildren<LODGroup>() == null)
             {
-                treeObject.AddComponent<MeshCollider>();
+                CapsuleCollider collider = treeObject.AddComponent<CapsuleCollider>();
+                collider.center = new Vector3(-0.15f, 1f, -0.2f);
+                collider.radius = 0.25f;
+                collider.height = 2.5f;
                 treeObject.AddComponent<InteractableObject>().ObjectName = "Tree";
                 treeObject.AddComponent<AttackableObject>().attackableObjectSO = treeSO;
-                // treeObject.AddComponent<Outline>();
             }
             else
             {
-                treeObject.transform.GetChild(0).gameObject.AddComponent<MeshCollider>();
+                CapsuleCollider collider = treeObject.transform.GetChild(0).gameObject.AddComponent<CapsuleCollider>();
+                collider.center = new Vector3(-0.15f, 1f, -0.2f);
+                collider.radius = 0.25f;
+                collider.height = 2.5f;
                 treeObject.transform.GetChild(0).gameObject.AddComponent<InteractableObject>().ObjectName = "Tree";
                 treeObject.transform.GetChild(0).gameObject.AddComponent<AttackableObject>().attackableObjectSO = treeSO;
-                // treeObject.transform.GetChild(0).gameObject.AddComponent<Outline>();
             }
         }
         terrain.terrainData.treeInstances = treeInstances.ToArray();
     }
     public void TreeDeath(GameObject treeObject)
     {
-        treeObject.GetComponentInChildren<MeshCollider>().enabled = false;
+        treeObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
+
         GameObject colliderInstance = Instantiate(treeCollider);
         colliderInstance.transform.position = treeObject.transform.position;
         colliderInstance.transform.parent = treeObject.transform;
         colliderInstance.layer = LayerMask.NameToLayer("FallingTree");
+
         var rb = treeObject.AddComponent<Rigidbody>();
         rb.isKinematic = true;
         rb.useGravity = false;

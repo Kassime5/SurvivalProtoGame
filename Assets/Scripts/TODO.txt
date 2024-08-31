@@ -1,3 +1,1 @@
 Create new ores and new type/tier of items
-Add ores to rocks
-Change the hitbox of trees to only be a cylinder (same as when destroyed)

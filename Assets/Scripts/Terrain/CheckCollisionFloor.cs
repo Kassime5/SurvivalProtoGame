@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class CheckCollisionFloor : MonoBehaviour
 {
@@ -31,7 +32,15 @@ public class CheckCollisionFloor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Terrain"))
         {
-            Destroy(transform.parent.gameObject);
+            GameObject parent = transform.parent.gameObject;
+            while (parent.transform.parent != null)
+            {
+                parent = parent.transform.parent.gameObject;
+                if (parent.tag == "Tree")
+                {
+                    Destroy(parent);
+                }
+            }
         }
     }
 
